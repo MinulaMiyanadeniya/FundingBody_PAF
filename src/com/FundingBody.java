@@ -25,7 +25,7 @@ public class FundingBody {
 	}
 	
 	
-	public String insertFundingBody(String FundingBodyID,String Name, String Telno, String CompanyName, String CompanyAddress, String Email) {
+	public String insertFundingBody(String FundingBodyID, String Name, String Telno, String CompanyName, String CompanyAddress, String Email) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -63,37 +63,50 @@ public class FundingBody {
 			if (con == null) {
 				return "Error while connecting to the database for reading.";
 			}
-// Prepare the html table to be displayed
-			output = "<table border=\"1\" class=\"table table-dark\"><tr><th>FundingBody ID</th><th>FundingBody Name</th><th>Telno</th><th>Company Name</th><th>Company Address</th><th>Email</th><th>Update</th><th>Remove</th></tr>";
+			// Prepare the html table to be displayed
+			output = "<table border=\"1\" class=\"table table-dark\"><tr><th>FundingBody ID</th>"
+					+ "<th>FundingBody Name</th"
+					+ "<th>Telno</th>"
+					+ "<th>Company Name</th>"
+					+ "<th>Company Address</th>"
+					+ "<th>Email</th>"
+					+ "<th>Update</th><th>Remove</th></tr>";
+			
 			String query = "select * from fundingbody";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
-// iterate through the rows in the result set
-			while (rs.next()) {
+			
+			// iterate through the rows in the result set
+			while (rs.next())
+			{
 				String FundingBodyID = Integer.toString(rs.getInt("Id"));
 				String Name = rs.getString("Name");
 				String Telno = Integer.toString(rs.getInt("Telno"));
 				String CompanyName = rs.getString("Companyname");
 				String CompanyAddress = rs.getString("Companyaddress");
 				String Email = rs.getString("Email");
-// Add into the html table
-				output += "<tr><td><input id='hidFundingBodyIDupdate' name='hidFundingBodyIDupdate' type='hidden' value='"+ FundingBodyID 
-						+"'>" +FundingBodyID  + "</td>";
+				
+				// Add into the html table
+				output += "<tr><td><input id='hidFundingBodyIDupdate'"
+						+ " name='hidFundingBodyIDupdate'"
+						+ " type='hidden' value='"+ FundingBodyID +"'>"
+						+FundingBodyID  + "</td>";
 				output += "<td>" + Name + "</td>";
 				output += "<td>" + Telno + "</td>";
 				output += "<td>" + CompanyName + "</td>";
 				output += "<td>" + CompanyAddress + "</td>";
 				output += "<td>" + Email + "</td>";
 
-// buttons
+				// buttons
 				output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-success'></td>"
 						+ "<td><input name='btnRemove' type='button' value='Remove' class='btnRemove btn btn-danger' data-FundingBodyID='"
 						+  FundingBodyID + "'>" + "</td></tr>"; 
 				
-				
 			}
+			
 			con.close();
-// Complete the html table
+			
+			// Complete the html table
 			output += "</table>";
 		} catch (Exception e) {
 			output = "Error while reading the FundingBody details.";

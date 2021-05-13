@@ -2,11 +2,15 @@
 <%@page import="com.FundingBody"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>FundingBody Details</title>
+
+<!--Link Bootstrap, jQuery, and FundingBody.js to the FundingBodyDetails page-->
+
 <link rel="stylesheet" href="Views/bootstrap.css">
 <script src="Components/jquery-3.2.1.min.js"></script>
 <script src="Components/FundingBody.js"></script>
@@ -16,18 +20,21 @@ h1 {
 	text-align: left;
 	text-transform: uppercase;
 	color:black;
-	background:#C4A484;
+	background:#9999ff;
 	
 }
 
 body{
-background:linear-gradient(to right, rgb(69, 96, 125), rgb(111, 210, 91));
+background:linear-gradient(to right, rgb(153, 153, 255), rgb(204, 204, 255));
 font-weight: bold;
 
 }
 </style>
 
 </head>
+
+<!--Structure of the page-->
+
 <body>
 
 	<h1>GadgetBadget System - FundingBody</h1>
@@ -36,7 +43,7 @@ font-weight: bold;
 	<h2>Add FundingBody Details</h2>
 	<br>
 
-	<!--add form-->
+<!--Develop the form-->
 
 	<div class="addform">
 		<form name="formFundingBodyinfo" id="formFundingBodyinfo" class="form-horizontal font-weight-bold" action="FundingBodyDetails.jsp" method="post" >

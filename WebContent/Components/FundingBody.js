@@ -1,3 +1,5 @@
+// Controller & client-server implementation
+
 $(document).ready(function()
 {
  $("#alertSuccess").hide();
@@ -41,7 +43,7 @@ if (status == "success")
  var resultSet = JSON.parse(response);
  if (resultSet.status.trim() == "success")
  {
- $("#alertSuccess").text("Successfully saved.");
+ $("#alertSuccess").text("Saved Successfully.");
  $("#alertSuccess").show();
  $("#divFundingBodyGrid").html(resultSet.data);
  } else if (resultSet.status.trim() == "error")
@@ -133,7 +135,7 @@ if ($("#Name").val().trim() == "")
 // validate telephone field
 if ($("#Telno").val().trim() == "")
 {
-return "Insert Telephone number!";
+return "Insert Telephone Number!";
 }
 // validate Telno field 
 var tmpTel = $("#Telno").val().trim();
@@ -160,4 +162,3 @@ return "Insert Email";
 }
 return true;
 }
-//test
